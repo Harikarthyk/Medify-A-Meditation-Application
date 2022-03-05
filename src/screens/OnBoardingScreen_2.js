@@ -15,7 +15,7 @@ import normalize from 'react-native-normalize';
 import Toast from 'react-native-toast-message';
 import TextInput_1 from '../components/TextInput/TextInput_1';
 import { HOME, LEFT_ARROW_PRIMARY } from '../constants/icons';
-import { MAN, WOMAN } from '../constants/images';
+import { MAN, OTHER, WOMAN } from '../constants/images';
 import colors from '../theme/colors';
 import fonts from '../theme/fonts';
 import metrics from '../theme/metrics';
@@ -153,7 +153,7 @@ function OnBoardingScreen_2({ navigation }) {
                             onPress={() => onChangeText('gender', 'other')}
                         >
                             <Image
-                                source={WOMAN}
+                                source={OTHER}
                                 style={styles.genderImage}
                                 resizeMode='contain'
                             />
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     },
     subHeading: {
         fontSize: fonts.size.font14,
-        color: colors.textGrey,
+        color: colors.primary,
         fontFamily: fonts.type.montserratMedium
     },
     backButton: {

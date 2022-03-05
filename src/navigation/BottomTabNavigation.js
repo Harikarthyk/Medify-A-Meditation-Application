@@ -15,7 +15,7 @@ import {
     USER_BLACK, 
     USER_PRIMARY 
 } from '../constants/icons';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 
 
@@ -28,13 +28,7 @@ const BottomTabNavigation = () => {
         <BottomTab.Navigator
             screenOptions={{
                 showLabel: false,
-                tabBarStyle: {
-                    backgroundColor: colors.white,
-                    height: normalize(60),
-                    elevation: 2,
-                    borderTopLeftRadius: normalize(15),
-                    borderTopRightRadius: normalize(15),
-                }
+                tabBarStyle: styles.tabBarStyle
             }}
             initialRouteName="HomeScreen"
         >
@@ -46,27 +40,16 @@ const BottomTabNavigation = () => {
                         focused === true ?
                             <Image
                                 source={HOME_PRIMARY}
-                                resizeMode="contain"
-                                style={{
-                                    width: normalize(23),
-                                    height: normalize(23),
-                                }}
-                            /> :
+                                resizeMode="contain"       
+                                style={styles.tabBarIconStyleFocussed}
+                            /> 
+                        :
                             <Image
                                 source={HOME_BLACK}
                                 resizeMode='contain'
-                                style={{
-                                    width: normalize(22),
-                                    height: normalize(22),
-                                }}
+                                style={styles.tabBarIconStyleUnFocussed}
                             />
                     ),
-                    // tabBarButton: (props) => (
-                    //     <TabBarCustomButton
-                    //         {...props}
-                    //         name={' Shop'}
-                    //     />
-                    // ),
                     headerShown: false,
                     tabBarShowLabel: false
                 }}
@@ -80,26 +63,15 @@ const BottomTabNavigation = () => {
                             <Image
                                 source={FAVORITES_PRIMARY}
                                 resizeMode="contain"
-                                style={{
-                                    width: normalize(23),
-                                    height: normalize(23),
-                                }}
-                            /> :
+                                style={styles.tabBarIconStyleFocussed}
+                            /> 
+                        :
                             <Image
                                 source={FAVORITES_BLACK}
                                 resizeMode='contain'
-                                style={{
-                                    width: normalize(22),
-                                    height: normalize(22),
-                                }}
+                                style={styles.tabBarIconStyleUnFocussed}
                             />
                     ),
-                    // tabBarButton: (props) => (
-                    //     <TabBarCustomButton
-                    //         {...props}
-                    //         name={' Shop'}
-                    //     />
-                    // ),
                     headerShown: false,
                     tabBarShowLabel: false,
                 }}
@@ -113,26 +85,15 @@ const BottomTabNavigation = () => {
                             <Image
                                 source={USER_PRIMARY}
                                 resizeMode="contain"
-                                style={{
-                                    width: normalize(23),
-                                    height: normalize(23),
-                                }}
-                            /> :
+                                style={styles.tabBarIconStyleFocussed}
+                           /> 
+                        :
                             <Image
                                 source={USER_BLACK}
                                 resizeMode='contain'
-                                style={{
-                                    width: normalize(22),
-                                    height: normalize(22),
-                                }}
+                                style={styles.tabBarIconStyleUnFocussed}
                             />
                     ),
-                    // tabBarButton: (props) => (
-                    //     <TabBarCustomButton
-                    //         {...props}
-                    //         name={' Shop'}
-                    //     />
-                    // ),
                     headerShown: false,
                     tabBarShowLabel: false,
                 }}
@@ -140,5 +101,23 @@ const BottomTabNavigation = () => {
         </BottomTab.Navigator>
     )
 }
+
+const styles = StyleSheet.create({
+    tabBarStyle: {
+        backgroundColor: colors.white,
+        height: normalize(60),
+        elevation: 2,
+        borderTopLeftRadius: normalize(15),
+        borderTopRightRadius: normalize(15),
+    },
+    tabBarIconStyleFocussed: {
+        width: normalize(27),
+        height: normalize(27),
+    },
+    tabBarIconStyleUnFocussed: {
+        width: normalize(23),
+        height: normalize(23),
+    }
+})
 
 export default BottomTabNavigation

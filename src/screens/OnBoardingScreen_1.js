@@ -2,6 +2,7 @@ import AnimatedLottieView from 'lottie-react-native';
 import React from 'react';
 import { 
     SafeAreaView, 
+    StatusBar, 
     StyleSheet, 
     Text, 
     TouchableOpacity
@@ -86,6 +87,9 @@ function OnBoardingScreen_1({ navigation }) {
         <SafeAreaView 
             style={styles.container}
         >
+            <StatusBar
+                backgroundColor={colors.primary}
+            />
             <AnimatedLottieView
                 source={YOGA_GIRL}
                 autoPlay

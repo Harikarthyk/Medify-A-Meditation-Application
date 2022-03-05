@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AnimatedLottieView from 'lottie-react-native';
 import React, { useEffect } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import normalize from 'react-native-normalize';
 import { LOGO } from '../constants/lottie';
 import colors from '../theme/colors';
@@ -12,7 +12,7 @@ const { weight, type, size } = fonts;
 function SplashScreen({ navigation }) {
 
     const isFirstTime = async() => {
-        return await AsyncStorage.getItem('firstTime');
+        return await AsyncStorage.getItem('user');
     }
 
     useEffect(() => {
@@ -29,7 +29,10 @@ function SplashScreen({ navigation }) {
     return (
         <SafeAreaView 
             style={styles.container}
-        >
+        >   
+            <StatusBar
+                backgroundColor={colors.primary}
+            />
             <AnimatedLottieView
                 source={LOGO}
                 autoPlay
