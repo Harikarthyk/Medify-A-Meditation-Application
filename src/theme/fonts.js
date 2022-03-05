@@ -15,6 +15,7 @@ const size = {
     font16: calculateFontSize(16),
     font18: calculateFontSize(18),
     font20: calculateFontSize(20),
+    font22: calculateFontSize(22),
     font24: calculateFontSize(24)
 }
 

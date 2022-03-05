@@ -56,8 +56,9 @@ const GetStartedButton = ({ onGetStartedButtonHandler }) => {
                 alignSelf: 'center',
                 backgroundColor: colors.primary,
                 borderRadius: normalize(7.5),
-                marginTop: normalize(30),
-                elevation: 1
+                elevation: 1,
+                position: 'absolute',
+                bottom: normalize(20)
             }}
             onPress={onGetStartedButtonHandler}
         >
@@ -75,7 +76,12 @@ const GetStartedButton = ({ onGetStartedButtonHandler }) => {
     )
 }
 
-function OnBoardingScreen_1() {
+function OnBoardingScreen_1({ navigation }) {
+
+    const onGetStartedButtonHandler = () => {
+        navigation.navigate('OnBoardingScreen_2');
+    }
+
     return (
         <SafeAreaView 
             style={styles.container}
@@ -90,7 +96,7 @@ function OnBoardingScreen_1() {
             <SubHeading content={'Boost your Life'} />
             <SubHeading content={'Enhance the World'}  />
             
-            <GetStartedButton onGetStartedButtonHandler={() => {}} />
+            <GetStartedButton onGetStartedButtonHandler={onGetStartedButtonHandler} />
         </SafeAreaView>
     )
 }

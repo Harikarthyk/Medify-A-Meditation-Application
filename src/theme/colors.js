@@ -8,7 +8,8 @@ const colors = {
     backgroundColor: '#ffffff',
     white: '#FFFFFF',
     black: '#000000',
-    gray: '#F9F9F9',
+    // gray: '#F9F9F9',
+    gray: '#F5F8F9',
     progressGray: '#C1C1C1'
 }
 

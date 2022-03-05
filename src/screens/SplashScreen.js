@@ -23,7 +23,7 @@ function SplashScreen({ navigation }) {
             }else{
                 navigation.replace('BottomTabStack')
             }
-        }, 4000);
+        }, 3200);
     }, []);
 
     return (
@@ -33,6 +33,7 @@ function SplashScreen({ navigation }) {
             <AnimatedLottieView
                 source={LOGO}
                 autoPlay
+                loop={false}
                 style={styles.lottieLogo}
             />
             <Text style={styles.textLogo}>
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     textLogo: {
-        fontSize: size.font20,
+        fontSize: size.font22,
         fontWeight: weight.semi,
         color: colors.primary,
         fontFamily: type.montserratMedium,

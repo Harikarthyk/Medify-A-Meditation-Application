@@ -2,14 +2,20 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import colors from '../theme/colors';
 import normalize from 'react-native-normalize';
-import { 
+import {
     HomeScreen,
     FavoritesScreen,
-    SettingsScreen,
-    TrackingScreen
+    SettingsScreen
 } from '../screens';
-import FastImage from 'react-native-fast-image';
-import { HOME } from '../constants/icons';
+import { 
+    FAVORITES_PRIMARY,
+    FAVORITES_BLACK, 
+    HOME_BLACK, 
+    HOME_PRIMARY, 
+    USER_BLACK, 
+    USER_PRIMARY 
+} from '../constants/icons';
+import { Image } from 'react-native';
 
 
 
@@ -23,8 +29,11 @@ const BottomTabNavigation = () => {
             screenOptions={{
                 showLabel: false,
                 tabBarStyle: {
-                    backgroundColor: colors.primary,
-                    height: normalize(75)
+                    backgroundColor: colors.white,
+                    height: normalize(60),
+                    elevation: 2,
+                    borderTopLeftRadius: normalize(15),
+                    borderTopRightRadius: normalize(15),
                 }
             }}
             initialRouteName="HomeScreen"
@@ -34,22 +43,54 @@ const BottomTabNavigation = () => {
                 component={HomeScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        focused === true ? <Image
-                            source={HOME}
-                            resizeMode="contain"
-                            style={{
-                                width: normalize(23),
-                                height: normalize(23),
-                                tintColor: focused ? theme.colors.primary : theme.colors.inactiveTabIcons
-                            }}
-                        /> :
-                            <FastImage
-                                source={HOME}
+                        focused === true ?
+                            <Image
+                                source={HOME_PRIMARY}
+                                resizeMode="contain"
+                                style={{
+                                    width: normalize(23),
+                                    height: normalize(23),
+                                }}
+                            /> :
+                            <Image
+                                source={HOME_BLACK}
                                 resizeMode='contain'
                                 style={{
-                                    width:normalize(22),
+                                    width: normalize(22),
                                     height: normalize(22),
-                                    tintColor: focused ? colors.primary : colors.gray
+                                }}
+                            />
+                    ),
+                    // tabBarButton: (props) => (
+                    //     <TabBarCustomButton
+                    //         {...props}
+                    //         name={' Shop'}
+                    //     />
+                    // ),
+                    headerShown: false,
+                    tabBarShowLabel: false
+                }}
+            />
+            <BottomTab.Screen
+                name="FavoritesScreen"
+                component={FavoritesScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        focused === true ?
+                            <Image
+                                source={FAVORITES_PRIMARY}
+                                resizeMode="contain"
+                                style={{
+                                    width: normalize(23),
+                                    height: normalize(23),
+                                }}
+                            /> :
+                            <Image
+                                source={FAVORITES_BLACK}
+                                resizeMode='contain'
+                                style={{
+                                    width: normalize(22),
+                                    height: normalize(22),
                                 }}
                             />
                     ),
@@ -63,27 +104,26 @@ const BottomTabNavigation = () => {
                     tabBarShowLabel: false,
                 }}
             />
-             <BottomTab.Screen
-                name="SettingsScreens"
+            <BottomTab.Screen
+                name="SettingsScreen"
                 component={SettingsScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        focused === true ? <Image
-                            source={HOME}
-                            resizeMode="contain"
-                            style={{
-                                width: normalize(23),
-                                height: normalize(23),
-                                tintColor: focused ? theme.colors.primary : theme.colors.inactiveTabIcons
-                            }}
-                        /> :
-                            <FastImage
-                                source={HOME}
+                        focused === true ?
+                            <Image
+                                source={USER_PRIMARY}
+                                resizeMode="contain"
+                                style={{
+                                    width: normalize(23),
+                                    height: normalize(23),
+                                }}
+                            /> :
+                            <Image
+                                source={USER_BLACK}
                                 resizeMode='contain'
                                 style={{
-                                    width:normalize(22),
+                                    width: normalize(22),
                                     height: normalize(22),
-                                    tintColor: focused ? colors.primary : colors.gray
                                 }}
                             />
                     ),
