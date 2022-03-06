@@ -33,6 +33,9 @@ function AudioView({
                 alignItems: 'center',
                 marginRight: horizontal === true ? normalize(10) : 0
             }}
+            onPress={() => {
+                navigation.navigate('TrackPlayer', { item });
+            }}
         >
             <View
                 style={{

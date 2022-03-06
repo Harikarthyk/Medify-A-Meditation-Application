@@ -14,6 +14,11 @@ target 'medify' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'medifyTests' do
     inherit! :complete
     # Pods for testing

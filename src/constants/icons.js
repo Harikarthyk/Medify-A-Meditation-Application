@@ -9,8 +9,15 @@ const FAVORITES_BLACK = require('../assets/icons/favoritesBlack.png');
 const FAVORITES_PRIMARY = require('../assets/icons/favoritesPrimary.png');
 const PLAY_BUTTON_PRIMARY = require('../assets/icons/playButtonPrimary.png');
 const PLAY_BUTTON_WHITE = require('../assets/icons/playButtonWhite.png');
+const FORWARD_PRIMARY = require('../assets/icons/forwardPrimary.png');
+const BACKWARD_PRIMARY = require('../assets/icons/backwardPrimary.png');
+const PAUSE_PRIMARY = require('../assets/icons/pausePrimary.png');
 
 export {
+    PAUSE_PRIMARY,
+    FORWARD_PRIMARY,
+    BACKWARD_PRIMARY,
+
     PLAY_BUTTON_PRIMARY,
     PLAY_BUTTON_WHITE,
     LEFT_ARROW_PRIMARY,

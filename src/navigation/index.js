@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { 
-    SplashScreen
+    SplashScreen,
+    TrackPlayer
 } from '../screens';
 import OnBoardingNavigation from './OnBoardingNavigation';
 import BottomTabNavigation from './BottomTabNavigation';
@@ -19,6 +20,13 @@ function MainStackNavigation() {
                 name='SplashScreen'
                 component={SplashScreen}
             />
+
+            <MainStack.Screen
+                options={{ headerShown: false }}
+                name='TrackPlayer'
+                component={TrackPlayer}
+            />
+
 
             <MainStack.Screen
                 options={{ headerShown: false }}
