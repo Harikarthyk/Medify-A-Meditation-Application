@@ -12,8 +12,13 @@ const PLAY_BUTTON_WHITE = require('../assets/icons/playButtonWhite.png');
 const FORWARD_PRIMARY = require('../assets/icons/forwardPrimary.png');
 const BACKWARD_PRIMARY = require('../assets/icons/backwardPrimary.png');
 const PAUSE_PRIMARY = require('../assets/icons/pausePrimary.png');
+const STARRED = require('../assets/icons/starred.png');
+const UN_STARRED = require('../assets/icons/unstarred.png');
 
 export {
+    STARRED,
+    UN_STARRED,
+    
     PAUSE_PRIMARY,
     FORWARD_PRIMARY,
     BACKWARD_PRIMARY,

@@ -11,15 +11,17 @@ import {
 import Slider from '@react-native-community/slider';
 import FastImage from 'react-native-fast-image';
 import normalize from 'react-native-normalize';
-import { BACKWARD_PRIMARY, FORWARD_PRIMARY, LEFT_ARROW_PRIMARY, PAUSE_PRIMARY, PLAY_BUTTON_PRIMARY } from '../constants/icons';
+import { BACKWARD_PRIMARY, FAVORITES_PRIMARY, FAVORITES_WHITE, FORWARD_PRIMARY, LEFT_ARROW_PRIMARY, PAUSE_PRIMARY, PLAY_BUTTON_PRIMARY, STARRED, UN_STARRED } from '../constants/icons';
 import colors from '../theme/colors'
 import fonts from '../theme/fonts';
 import metrics from '../theme/metrics';
 import Sound from 'react-native-sound';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 var sound = null;
 var timeout = null;
+var isFav = false;
 
 function TrackPlayer({
     navigation,
@@ -40,12 +42,23 @@ function TrackPlayer({
     const [currTime, setCurrTime] = useState(0);
     const interval = useRef(setTimeout(() => {}, 0));
 
-    function playSound() {
+    const [isAddedToFav, setIsAddedToFav] = useState(false);
+
+    async function playSound() {
+        const myFav = await AsyncStorage.getItem('myFav');
+        const jsonMyFav = JSON.parse(myFav) || null;
+        if(jsonMyFav !== null){
+            let temp = jsonMyFav?.fav?.filter(item => item.id === id);
+            if(temp?.length > 0){
+                setIsAddedToFav(true);
+                isFav = true;
+            }
+        
+        }
         sound = new Sound('https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3', null, error => {
             if(error){
                 console.log('Its is and Error while playing sound.');
             }
-            console.log(sound)
             sound.play();
             setState({
                 ...state,
@@ -53,7 +66,6 @@ function TrackPlayer({
                 sliderState: true,
                 playState: 'playing'
             });
-            console.log(sound.getDuration())
             sound['my_playing'] = true;
             interval.current = setInterval(function(){
                 if(sound && sound._loaded &&  sound['my_playing'] == true){
@@ -66,13 +78,26 @@ function TrackPlayer({
         });
     }
 
-
     useEffect(function() {
         playSound();
-    
-        return () => {
+        return async() => {
             sound.stop();
             clearTimeout(interval.current);
+            const myFav = await AsyncStorage.getItem('myFav');
+            const jsonMyFav = JSON.parse(myFav) || null;
+            const arr = jsonMyFav ? jsonMyFav.fav?.filter(item => item.id === id) : [];
+            if(isFav === true){
+                if(arr.length === 0){
+                    let temp = jsonMyFav.fav;
+                    temp.push(item);
+                    await AsyncStorage.setItem('myFav', JSON.stringify({'fav': temp}));
+                }
+            }else{
+                if(arr.length > 0){
+                    const newArr =jsonMyFav ?  jsonMyFav.fav.filter(item => item.id !== id) : [];
+                    await AsyncStorage.setItem('myFav', JSON.stringify({'fav': newArr}));
+                }
+            }
             // timeout.clearTimeout();
         }
     }, []);
@@ -141,24 +166,79 @@ function TrackPlayer({
                 backgroundColor={colors.white}
                 barStyle='dark-content'
             />
-            <TouchableOpacity
-                onPress={() => navigation.goBack()}
+            <View
                 style={{
                     position: 'absolute',
-                    zIndex: 1,
-                    top: normalize(25),
-                    left: normalize(15),
-                    padding: normalize(10)
+                    width: '100%',
+                    justifyContent: 'space-between',
+                    top: normalize(30),
+                    alignSelf: 'center'
                 }}
             >
-                <Image
-                    source={LEFT_ARROW_PRIMARY}
+                {
+                    isAddedToFav === false ? 
+                    <TouchableOpacity
                     style={{
-                        width: normalize(30),
-                        height: normalize(30)
+                        padding: normalize(10),
+                        right: 0,
+                        position: 'absolute',
+                        
                     }}
-                />
-            </TouchableOpacity>
+                    onPress={() => {
+                        isFav = true;
+                        setIsAddedToFav(true);
+                    }}
+                >
+                    <Image
+                        source={FAVORITES_WHITE}
+                        style={{
+                            width: normalize(30),
+                            height: normalize(30)
+                        }}
+                    />
+                </TouchableOpacity>
+                :
+                <TouchableOpacity
+                    style={{
+                        padding: normalize(10),
+                        right: 0,
+                        position: 'absolute',
+                        
+                    }}
+                    onPress={() => {
+                        isFav = false
+                        setIsAddedToFav(false);
+                    }}
+                >
+                    <Image
+                        source={FAVORITES_PRIMARY}
+                        style={{
+                            width: normalize(30),
+                            height: normalize(30)
+                        }}
+                    />
+                </TouchableOpacity>
+
+                }
+                
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}
+                    style={{
+                        padding: normalize(10),
+                        left: 0,
+                        position: 'absolute'
+                    }}
+                >
+                    <Image
+                        source={LEFT_ARROW_PRIMARY}
+                        style={{
+                            width: normalize(30),
+                            height: normalize(30)
+                        }}
+                    />
+                </TouchableOpacity>
+            </View>
+            
 
             <View
                 style={styles.audioPlayerInfo}
@@ -185,15 +265,17 @@ function TrackPlayer({
                 }}
             >
                 <Slider
-                    // ref={currTime}
-                    onTouchStart={() => {}}
+                    onSlidingComplete={() => {
+                        console.log('touch')
+                    }}
                     // onTouchMove={() => console.log('onTouchMove')}
                     onTouchEnd={() => {}}
                     // onTouchEndCapture={() => console.log('onTouchEndCapture')}
                     // onTouchCancel={() => console.log('onTouchCancel')}
                     onValueChange={(newTime) => {
-                        sound.setCurrentTime(newTime);
-                        setCurrTime(newTime);
+                        console.log('new timeeeee')
+                        // sound.setCurrentTime(newTime);
+                        // setCurrTime(newTime);
                     }}
                     value={currTime}
                     minimumValue={0} 
@@ -228,7 +310,7 @@ function TrackPlayer({
                     style={{
                         color: colors.secondary,
                         fontSize: fonts.size.font12,
-                        fontWeight: fonts.weight.normal
+                        fontWeight: fonts.weight.normal   
                     }}
                 >
                     {getAudioTimeString(state.duration)}

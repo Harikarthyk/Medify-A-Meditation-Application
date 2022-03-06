@@ -214,7 +214,6 @@ function HomeScreen({
                         })
                     }
                 </View>
-                
             </ScrollView>
         </SafeAreaView>
     )
