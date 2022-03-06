@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { 
     SafeAreaView, 
     StyleSheet,
@@ -16,10 +16,10 @@ import colors from '../theme/colors'
 import fonts from '../theme/fonts';
 import metrics from '../theme/metrics';
 import Sound from 'react-native-sound';
-import { useEffect, useState } from 'react/cjs/react.development';
 
 
 var sound = null;
+var timeout = null;
 
 function TrackPlayer({
     navigation,
@@ -33,64 +33,68 @@ function TrackPlayer({
     const { audioTrack, duration, imageUrl, name, description, id } = item;
 
     const [state, setState] = useState({
-        playState: 'paused',
         duration: 0,
         sliderState: false,
-        playSeconds: 0
+        playState: 'pause'
     });
-
     const [currTime, setCurrTime] = useState(0);
-    const [currSound, setCurrSound] = useState(null);
-
+    const interval = useRef(setTimeout(() => {}, 0));
 
     function playSound() {
-        sound = new Sound(audioTrack, null, error => {
+        sound = new Sound('https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3', null, error => {
             if(error){
                 console.log('Its is and Error while playing sound.');
             }
+            console.log(sound)
             sound.play();
             setState({
                 ...state,
-                playState: 'playing',
                 duration: sound.getDuration(),
-                sliderState: true
+                sliderState: true,
+                playState: 'playing'
             });
+            console.log(sound.getDuration())
+            sound['my_playing'] = true;
+            interval.current = setInterval(function(){
+                if(sound && sound._loaded &&  sound['my_playing'] == true){
+                    sound.getCurrentTime((seconds) => {
+                        setCurrTime(seconds);
+                    })
+                }
+            }, 100);
+            
         });
-        setCurrSound(sound);
-
     }
 
 
-    useEffect(() => {
+    useEffect(function() {
         playSound();
-        var timeout = setInterval(() => {
-            if(sound && sound._loaded && state.playState === 'playing'){
-                sound.getCurrentTime((seconds) => {
-                    setCurrTime(seconds);
-                    setState({...state, playSeconds:seconds });
-                })
-            }
-        }, 100);
+    
         return () => {
             sound.stop();
-            clearTimeout(timeout);
+            clearTimeout(interval.current);
             // timeout.clearTimeout();
         }
     }, []);
 
     const pauseHandler = () => {
         sound.stop();
+        sound.setCurrentTime(currTime);
+        sound['my_playing'] = false;
         setState({
             ...state,
-            playState: 'paused',
+            playState: 'pause'
         });
+
     }
 
     const resumeHandler = () => {
         sound.play();
+        sound['my_playing'] = true;
+        sound.setCurrentTime(currTime);
         setState({
             ...state,
-            playState: 'playing',
+            playState: 'playing'
         });
     }
 
@@ -103,11 +107,30 @@ function TrackPlayer({
     }
 
     const jumpBackwardHandler = () => {
-        sound.setCurrTime(state.playState - 15 > 0 ? state.playState - 15 : 0);
+        if(sound._playing === false){
+            setState({
+                ...state,
+                playState: 'playing'
+            });
+            sound.play();
+        
+        }
+        sound.setCurrentTime(currTime - 15 > 0 ? currTime - 15 : 0);
+        
+        sound['my_playing'] = true;
     }
 
     const jumpForwardHandler = () => {
-        sound.setCurrTime(state.playState + 15 < state.duration ? state.playState + 15 : state.duration);
+        if(sound._playing === false){
+            sound.play();
+            setState({
+                ...state,
+                playState: 'playing'
+            })
+        }
+        sound.setCurrentTime(currTime + 15 < state.duration ? currTime + 15 : state.duration);
+    
+        sound['my_playing'] = true;
     }
 
     return (
@@ -118,8 +141,6 @@ function TrackPlayer({
                 backgroundColor={colors.white}
                 barStyle='dark-content'
             />
-            <Text style={{color: 'red'}}> {state.playSeconds}</Text>
-        {console.log(state, ' as ', currTime)}
             <TouchableOpacity
                 onPress={() => navigation.goBack()}
                 style={{
@@ -158,28 +179,61 @@ function TrackPlayer({
                     {description}
                 </Text>
             </View>
-            {/* <View>
+            <View
+                style={{
+                    marginVertical: normalize(25)
+                }}
+            >
                 <Slider
+                    // ref={currTime}
                     onTouchStart={() => {}}
                     // onTouchMove={() => console.log('onTouchMove')}
                     onTouchEnd={() => {}}
                     // onTouchEndCapture={() => console.log('onTouchEndCapture')}
                     // onTouchCancel={() => console.log('onTouchCancel')}
-                    onValueChange={() => {}}
-                    value={state.playSeconds}
+                    onValueChange={(newTime) => {
+                        sound.setCurrentTime(newTime);
+                        setCurrTime(newTime);
+                    }}
+                    value={currTime}
                     minimumValue={0} 
                     maximumValue={state.duration} 
-                    maximumTrackTintColor= 'blue'
-                    minimumTrackTintColor= 'green' 
+                    maximumTrackTintColor= {colors.textGrey}
+                    minimumTrackTintColor= {colors.primary} 
                     thumbTintColor={colors.primary}
+                    
                     style={{ 
                         flex: 1, 
                         width: '100%',
-                        alignSelf: 'center', 
-                        marginHorizontal: normalize(15)
+                        alignSelf: 'center'
                     }} 
                 />
-            </View> */}
+            </View>
+            <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between'
+                }}
+            >
+                <Text
+                    style={{
+                        color: colors.secondary,
+                        fontSize: fonts.size.font12,
+                        fontWeight: fonts.weight.normal
+                    }}
+                >
+                    {getAudioTimeString(currTime)}
+                </Text>
+                <Text
+                    style={{
+                        color: colors.secondary,
+                        fontSize: fonts.size.font12,
+                        fontWeight: fonts.weight.normal
+                    }}
+                >
+                    {getAudioTimeString(state.duration)}
+                </Text>
+            </View>
             <View
                 style={styles.player}
             >
@@ -229,26 +283,7 @@ function TrackPlayer({
                     />
                 </TouchableOpacity>
             </View>
-            <View>
-                <Text
-                    style={{
-                        color: colors.primary,
-                        fontSize: fonts.size.font18,
-                        fontWeight: fonts.weight.normal
-                    }}
-                >
-                    {getAudioTimeString(state.playSeconds)}
-                </Text>
-                <Text
-                    style={{
-                        color: colors.primary,
-                        fontSize: fonts.size.font18,
-                        fontWeight: fonts.weight.normal
-                    }}
-                >
-                    {getAudioTimeString(state.duration)}
-                </Text>
-            </View>
+            
         </SafeAreaView>
     )
 }
