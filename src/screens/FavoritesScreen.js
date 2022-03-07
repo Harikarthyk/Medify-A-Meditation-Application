@@ -33,22 +33,22 @@ function FavoritesScreen({navigation}) {
 
     const [items, setItems] = useState([]);
 
-    useEffect(async() => {
+    useEffect(() => {
 
         navigation.addListener('focus', async() => {
-            const myFav = await AsyncStorage.getItem('myFav');
-            const jsonFav = JSON.parse(myFav) || null;
-            if(jsonFav){
-                setItems([...jsonFav.fav])
-            }
+            getFav();
         })
+        getFav();
+        
+    }, []);
+
+    const getFav = async() => {
         const myFav = await AsyncStorage.getItem('myFav');
         const jsonFav = JSON.parse(myFav) || null;
         if(jsonFav){
             setItems([...jsonFav.fav])
         }
-        
-    }, []);
+    }
 
     return (
         <SafeAreaView
