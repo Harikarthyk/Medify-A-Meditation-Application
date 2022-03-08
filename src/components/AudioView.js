@@ -1,28 +1,32 @@
-import React from 'react'
+import React from 'react';
 import { 
     TouchableOpacity,
     View,
     Text,
-    Image
-} from 'react-native'
-import FastImage from 'react-native-fast-image'
-import normalize from 'react-native-normalize'
-import { PLAY_BUTTON_PRIMARY } from '../constants/icons'
-import colors from '../theme/colors'
-import fonts from '../theme/fonts'
-import metrics from '../theme/metrics'
+    Image,
+    useColorScheme
+} from 'react-native';
+import FastImage from 'react-native-fast-image';
+import normalize from 'react-native-normalize';
+import { PLAY_BUTTON_PRIMARY } from '../constants/icons';
+import colors from '../theme/colors';
+import fonts from '../theme/fonts';
+import metrics from '../theme/metrics';
 
 function AudioView({
     navigation,
     item,
-    horizontal = false
+    horizontal = false,
 }) {
+
+    const theme = useColorScheme()
+
     return (
         <TouchableOpacity
             style={{
                 width: horizontal === false ? metrics.screenWidth - 30 : metrics.screenWidth - 100,
                 height: normalize(200),
-                backgroundColor: colors.white,
+                backgroundColor: theme === 'dark' ? colors.cardColorDark : colors.cardColorDefault,
                 marginVertical: normalize(7),
                 elevation: 1,
                 borderRadius: normalize(20),
@@ -48,7 +52,7 @@ function AudioView({
                     <Text
                         style={{
                             fontSize: fonts.size.font18,
-                            color: colors.textPrimary
+                            color: theme === 'dark' ? colors.textPrimaryDark : colors.textPrimaryDefault
                         }}
                         numberOfLines={2}
                     >
@@ -93,7 +97,8 @@ function AudioView({
                 style={{
                     height: '80%',
                     // width: '40%',
-                    flex: .89
+                    flex: .89,
+                    borderRadius: normalize(35)
                 }}
                 resizeMode='contain'
             />

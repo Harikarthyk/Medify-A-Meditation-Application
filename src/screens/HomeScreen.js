@@ -222,7 +222,7 @@ function HomeScreen({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundColor
+        // backgroundColor: colors.backgroundColor
     },
     scrollContainer: {
         flex: 1,

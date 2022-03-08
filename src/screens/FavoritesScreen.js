@@ -74,7 +74,7 @@ function FavoritesScreen({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundColor,
+        // backgroundColor: colors.backgroundColor,
         padding: normalize(15)
     },
     bottomBorder: {

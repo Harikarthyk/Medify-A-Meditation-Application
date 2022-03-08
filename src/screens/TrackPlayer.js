@@ -53,9 +53,9 @@ function TrackPlayer({
                 setIsAddedToFav(true);
                 isFav = true;
             }
-        
+        // https://docs.google.com/uc?export=download&id=1b6XcTfYnSkkUPxaqfVdRra1xmtwGW1Wk
         }
-        sound = new Sound('https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3', null, error => {
+        sound = new Sound(audioTrack, null, error => {
             if(error){
                 console.log('Its is and Error while playing sound.');
             }
@@ -162,10 +162,6 @@ function TrackPlayer({
         <SafeAreaView
             style={styles.container}
         >
-            <StatusBar 
-                backgroundColor={colors.white}
-                barStyle='dark-content'
-            />
             <View
                 style={{
                     position: 'absolute',
@@ -373,7 +369,6 @@ function TrackPlayer({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.white,
         justifyContent: 'center',
         padding: normalize(15)
     },

@@ -4,7 +4,8 @@ import {
     TouchableOpacity,
     Text,
     View,
-    Image
+    Image,
+    useColorScheme
 } from 'react-native'
 import FastImage from 'react-native-fast-image';
 import normalize from 'react-native-normalize';
@@ -17,6 +18,8 @@ function Category({
     item
 }) {
 
+    const theme = useColorScheme();
+
     const categoryClickHandler = () => {
         navigation.navigate('CategoryScreen', { category: item });
     }
@@ -28,10 +31,10 @@ function Category({
                 height: metrics.screenHeight / 4, 
                 width: normalize(160),
                 marginRight: normalize(15),
-                backgroundColor: colors.white,
+                backgroundColor: theme === 'dark' ? colors.cardColorDark : colors.cardColorDefault,
                 elevation: 2,
                 borderRadius: normalize(20),
-                justifyContent: 'center',
+                justifyContent: 'space-evenly',
                 shadowColor: colors.gray
             }}
             key={item.id}
@@ -50,10 +53,10 @@ function Category({
             /> */}
             <FastImage
                 style={{ 
-                    height: '80%',
-                    width: '90%',
+                    height: normalize(120),
+                    width: normalize(120),
                     alignSelf: 'center',
-                    borderRadius: normalize(10)
+                    borderRadius: normalize(20)
                 }}
                 source={{
                     uri: item.imageUrl
@@ -62,7 +65,7 @@ function Category({
             />
             <Text 
                 style={{
-                    color: colors.textPrimary,
+                    color: theme === 'dark' ? colors.textPrimaryDark : colors.textPrimaryDefault,
                     textAlign: 'center',
                     fontSize: fonts.size.font14,
                     fontFamily: fonts.type.montserratMedium,
