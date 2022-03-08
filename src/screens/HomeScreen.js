@@ -51,14 +51,14 @@ const Header = () => {
             >
                 {greetings()}
             </Text>
-            <Image
+            {/* <Image
                 source={MAN}
                 style={{
-                    height: normalize(55),
-                    width: normalize(55)
+                    height: normalize(40),
+                    width: normalize(40)
                 }}
                 resizeMode={'center'}
-            />
+            /> */}
         </View>
     )
 }
