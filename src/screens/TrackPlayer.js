@@ -85,10 +85,10 @@ function TrackPlayer({
             clearTimeout(interval.current);
             const myFav = await AsyncStorage.getItem('myFav');
             const jsonMyFav = JSON.parse(myFav) || null;
-            const arr = jsonMyFav ? jsonMyFav.fav?.filter(item => item.id === id) : [];
+            const arr = jsonMyFav ? jsonMyFav?.fav?.filter(item => item.id === id) : [];
             if(isFav === true){
                 if(arr.length === 0){
-                    let temp = jsonMyFav.fav;
+                    let temp = jsonMyFav?.fav || [];
                     temp.push(item);
                     await AsyncStorage.setItem('myFav', JSON.stringify({'fav': temp}));
                 }

@@ -13,7 +13,8 @@ import {
     HOME_BLACK, 
     HOME_PRIMARY, 
     USER_BLACK, 
-    USER_PRIMARY 
+    USER_PRIMARY, 
+    FAVORITES_WHITE
 } from '../constants/icons';
 import { Image, StyleSheet } from 'react-native';
 
@@ -47,7 +48,7 @@ const BottomTabNavigation = () => {
                             <Image
                                 source={HOME_BLACK}
                                 resizeMode='contain'
-                                style={styles.tabBarIconStyleUnFocussed}
+                                style={[styles.tabBarIconStyleUnFocussed, {width: 26, height: 26}]}
                             />
                     ),
                     headerShown: false,
@@ -67,9 +68,9 @@ const BottomTabNavigation = () => {
                             /> 
                         :
                             <Image
-                                source={FAVORITES_BLACK}
+                                source={FAVORITES_WHITE}
                                 resizeMode='contain'
-                                style={styles.tabBarIconStyleUnFocussed}
+                                style={[styles.tabBarIconStyleUnFocussed, {width: 28, height: 28}]}
                             />
                     ),
                     headerShown: false,

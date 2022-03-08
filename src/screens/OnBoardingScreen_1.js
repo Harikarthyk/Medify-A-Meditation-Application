@@ -5,7 +5,8 @@ import {
     StatusBar, 
     StyleSheet, 
     Text, 
-    TouchableOpacity
+    TouchableOpacity,
+    useColorScheme
 } from 'react-native';
 import { YOGA_GIRL } from '../constants/lottie';
 import colors from '../theme/colors';
@@ -14,7 +15,7 @@ import fonts from '../theme/fonts';
 
 const { weight, type, size } = fonts;
 
-const Heading = () => {
+const Heading = ({theme}) => {
     return (
         <Text 
             style={{
@@ -23,7 +24,7 @@ const Heading = () => {
                 textAlign: 'center',
                 marginVertical: normalize(10),
                 fontFamily: type.montserratMedium,
-                color: colors.black
+                color: theme === 'dark'? colors.textPrimaryDark : colors.textPrimaryDefault
             }}
         >
             Welcome to Medify.
@@ -79,6 +80,8 @@ const GetStartedButton = ({ onGetStartedButtonHandler }) => {
 
 function OnBoardingScreen_1({ navigation }) {
 
+    const theme = useColorScheme();
+
     const onGetStartedButtonHandler = () => {
         navigation.navigate('OnBoardingScreen_2');
     }
@@ -96,7 +99,7 @@ function OnBoardingScreen_1({ navigation }) {
                 style={styles.lottie}
                 resizeMode='contain'
             />
-            <Heading />
+            <Heading theme={theme} />
             <SubHeading content={'Boost your Life'} />
             <SubHeading content={'Enhance the World'}  />
             
@@ -108,7 +111,7 @@ function OnBoardingScreen_1({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundColor,
+        // backgroundColor: colors.backgroundColor,
         justifyContent: 'center'
     },
     lottie: {

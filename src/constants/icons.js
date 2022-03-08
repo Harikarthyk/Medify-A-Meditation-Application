@@ -14,8 +14,15 @@ const BACKWARD_PRIMARY = require('../assets/icons/backwardPrimary.png');
 const PAUSE_PRIMARY = require('../assets/icons/pausePrimary.png');
 const STARRED = require('../assets/icons/starred.png');
 const UN_STARRED = require('../assets/icons/unstarred.png');
+const WALLET = require('../assets/icons/wallet.png');
+const LOGOUT = require('../assets/icons/logout.png');
+const PRIVACY = require('../assets/icons/privacy.png');
 
 export {
+    PRIVACY,
+    LOGOUT,
+    WALLET,
+    
     STARRED,
     UN_STARRED,
     

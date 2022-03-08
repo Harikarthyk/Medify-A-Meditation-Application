@@ -9,7 +9,8 @@ import {
     StyleSheet, 
     Text,
     TouchableOpacity,
-    View
+    View,
+    useColorScheme
 } from 'react-native';
 import normalize from 'react-native-normalize';
 import Toast from 'react-native-toast-message';
@@ -27,6 +28,8 @@ function OnBoardingScreen_2({ navigation }) {
         gender: '',
         age: ''
     });
+
+    const theme = useColorScheme();
 
     const onChangeText = (key, value) => {
         setState({
@@ -82,7 +85,7 @@ function OnBoardingScreen_2({ navigation }) {
                         style={styles.backButton}
                     />
                 </TouchableOpacity>
-                <Text style={styles.heading}>
+                <Text style={[styles.heading, { color: theme === 'dark' ? colors.textPrimaryDark : colors.textPrimaryDefault }]}>
                     Lets get started!
                 </Text>
                 <Text>
@@ -148,7 +151,7 @@ function OnBoardingScreen_2({ navigation }) {
                                 Female
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                             style={[styles.gender, state.gender === 'other' && styles.genderSelected]}
                             onPress={() => onChangeText('gender', 'other')}
                         >
@@ -162,7 +165,7 @@ function OnBoardingScreen_2({ navigation }) {
                             >
                                 Other
                             </Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </KeyboardAvoidingView>
 
@@ -198,7 +201,7 @@ function OnBoardingScreen_2({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.backgroundColor,
+        // backgroundColor: colors.backgroundColor,
         flex: 1
     },
     scrollViewContainer: {
@@ -225,7 +228,7 @@ const styles = StyleSheet.create({
     },
     genderContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         marginVertical: normalize(25)
     },
     gender: {
