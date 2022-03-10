@@ -45,7 +45,7 @@ function FavoritesScreen({navigation}) {
     const getFav = async() => {
         const myFav = await AsyncStorage.getItem('myFav');
         const jsonFav = JSON.parse(myFav) || null;
-        if(jsonFav){
+        if(jsonFav?.fav){
             setItems([...jsonFav.fav])
         }
     }
