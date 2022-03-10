@@ -16,7 +16,11 @@ import {
     USER_PRIMARY, 
     FAVORITES_WHITE
 } from '../constants/icons';
-import { Image, StyleSheet } from 'react-native';
+import { 
+    Image, 
+    StyleSheet, 
+    useColorScheme 
+} from 'react-native';
 
 
 
@@ -25,11 +29,15 @@ const BottomTab = createBottomTabNavigator();
 
 
 const BottomTabNavigation = () => {
+
+    const theme = useColorScheme();
+
     return (
         <BottomTab.Navigator
             screenOptions={{
                 showLabel: false,
-                tabBarStyle: styles.tabBarStyle
+                tabBarStyle: styles.tabBarStyle,
+                // tabBarStyle: [{...styles.tabBarStyle}, { backgroundColor: theme === 'dark' ? colors.cardColorDark :colors.cardColorDefault }]
             }}
             initialRouteName="HomeScreen"
         >
@@ -109,7 +117,7 @@ const styles = StyleSheet.create({
         height: normalize(60),
         elevation: 2,
         borderTopLeftRadius: normalize(15),
-        borderTopRightRadius: normalize(15),
+        borderTopRightRadius: normalize(15)
     },
     tabBarIconStyleFocussed: {
         width: normalize(27),

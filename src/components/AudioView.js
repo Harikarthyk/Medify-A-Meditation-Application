@@ -24,7 +24,7 @@ function AudioView({
     return (
         <TouchableOpacity
             style={{
-                width: horizontal === false ? metrics.screenWidth - 30 : metrics.screenWidth - 100,
+                width: horizontal === false ? metrics.screenWidth - 30 : metrics.screenWidth - 80,
                 height: normalize(200),
                 backgroundColor: theme === 'dark' ? colors.cardColorDark : colors.cardColorDefault,
                 marginVertical: normalize(7),
@@ -80,7 +80,7 @@ function AudioView({
                         style={{
                             width: normalize(23),
                             height: normalize(23),
-                            marginRight: normalize(10)
+                            marginRight: normalize(10),
                         }}
                     />
                     <Text 
@@ -89,16 +89,20 @@ function AudioView({
                             fontSize: fonts.size.font14,
                             
                         }}
-                    >{item.duration}</Text>
+                        numberOfLines={1}
+                    >
+                        {item.duration}
+                    </Text>
                 </View>
             </View>
             <FastImage
                 source={{uri: item?.imageUrl}}
                 style={{
-                    height: '80%',
+                    height: horizontal === true ? '65%' : '80%',
                     // width: '40%',
                     flex: .89,
-                    borderRadius: normalize(15)
+                    borderRadius: normalize(15),
+                    marginLeft: horizontal === true ? normalize(20) : 0
                 }}
                 resizeMode='contain'
             />

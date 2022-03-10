@@ -44,10 +44,13 @@ function FavoritesScreen({navigation}) {
 
     const getFav = async() => {
         const myFav = await AsyncStorage.getItem('myFav');
-        const jsonFav = JSON.parse(myFav) || null;
-        if(jsonFav?.fav){
-            setItems([...jsonFav.fav])
+        if(myFav){
+            const jsonFav = JSON.parse(myFav) || null;
+            if(jsonFav?.fav){
+                setItems([...jsonFav.fav])
+            }
         }
+        
     }
 
     return (

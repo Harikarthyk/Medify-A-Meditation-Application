@@ -4,8 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.swmansion.reanimated.ReanimatedPackage;
-import com.swmansion.reanimated.ReanimatedPackage;
+import com.microsoft.codepush.react.CodePush;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
@@ -34,6 +33,11 @@ public class MainApplication extends Application implements ReactApplication {
           return packages;
         }
 
+        @Override
+        protected String getJSBundleFile() {
+            return CodePush.getJSBundleFile();
+        }
+        
         @Override
         protected String getJSMainModuleName() {
           return "index";

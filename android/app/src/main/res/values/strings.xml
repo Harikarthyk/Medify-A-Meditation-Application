@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Medify</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">95219eaf-f32a-4ed3-a773-847a043fd5ce</string>
 </resources>
