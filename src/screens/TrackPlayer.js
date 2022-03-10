@@ -377,8 +377,8 @@ const styles = StyleSheet.create({
         width:'60%',
         alignSelf: 'center',
         elevation: 1,
-        shadowColor: colors.borderColor,
-        borderRadius: normalize(10)
+        // shadowColor: colors.borderColor,
+        borderRadius: normalize(8)
     },
     audioPlayerInfo: {
 

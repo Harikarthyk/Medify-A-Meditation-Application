@@ -56,7 +56,7 @@ function Category({
                     height: normalize(120),
                     width: normalize(120),
                     alignSelf: 'center',
-                    borderRadius: normalize(20)
+                    borderRadius: normalize(8)
                 }}
                 source={{
                     uri: item.imageUrl

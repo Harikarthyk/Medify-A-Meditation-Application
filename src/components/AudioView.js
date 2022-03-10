@@ -98,7 +98,7 @@ function AudioView({
                     height: '80%',
                     // width: '40%',
                     flex: .89,
-                    borderRadius: normalize(35)
+                    borderRadius: normalize(15)
                 }}
                 resizeMode='contain'
             />
