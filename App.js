@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   DarkTheme,
   DefaultTheme, 
@@ -9,10 +9,21 @@ import {
   LogBox, 
   useColorScheme 
 } from 'react-native';
+import codePush from "react-native-code-push";
 
+
+const codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_START
+}
 
 function App() {
   
+  useEffect(() => {
+    codePush.sync({
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE
+    });
+  }, []);
 
   const scheme = useColorScheme();
 
@@ -54,4 +65,4 @@ function App() {
   )
 }
 
-export default App
+export default  codePush(codePushOptions)(App);
