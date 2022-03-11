@@ -14,7 +14,9 @@ import {
     HOME_PRIMARY, 
     USER_BLACK, 
     USER_PRIMARY, 
-    FAVORITES_WHITE
+    FAVORITES_WHITE,
+    USER_WHITE,
+    HOME_WHITE
 } from '../constants/icons';
 import { 
     Image, 
@@ -36,8 +38,8 @@ const BottomTabNavigation = () => {
         <BottomTab.Navigator
             screenOptions={{
                 showLabel: false,
-                tabBarStyle: styles.tabBarStyle,
-                // tabBarStyle: [{...styles.tabBarStyle}, { backgroundColor: theme === 'dark' ? colors.cardColorDark :colors.cardColorDefault }]
+                // tabBarStyle: styles.tabBarStyle,
+                tabBarStyle: [{...styles.tabBarStyle}, { backgroundColor: theme === 'dark' ? colors.cardColorDark :colors.cardColorDefault, borderTopColor: theme === 'dark' ? colors.cardColorDark :colors.borderColor }]
             }}
             initialRouteName="HomeScreen"
         >
@@ -53,11 +55,18 @@ const BottomTabNavigation = () => {
                                 style={styles.tabBarIconStyleFocussed}
                             /> 
                         :
-                            <Image
-                                source={HOME_BLACK}
-                                resizeMode='contain'
-                                style={[styles.tabBarIconStyleUnFocussed, {width: 26, height: 26}]}
-                            />
+                        theme === 'dark' ?
+                        <Image
+                            source={HOME_WHITE}
+                            resizeMode='contain'
+                            style={styles.tabBarIconStyleUnFocussed}
+                        />
+                    : 
+                        <Image
+                            source={HOME_BLACK}
+                            resizeMode='contain'
+                            style={styles.tabBarIconStyleUnFocussed}
+                        />
                     ),
                     headerShown: false,
                     tabBarShowLabel: false
@@ -75,11 +84,18 @@ const BottomTabNavigation = () => {
                                 style={styles.tabBarIconStyleFocussed}
                             /> 
                         :
-                            <Image
-                                source={FAVORITES_WHITE}
-                                resizeMode='contain'
-                                style={[styles.tabBarIconStyleUnFocussed, {width: 28, height: 28}]}
-                            />
+                        theme === 'dark' ?
+                        <Image
+                            source={FAVORITES_WHITE}
+                            resizeMode='contain'
+                            style={[styles.tabBarIconStyleUnFocussed, { width: 26, height: 26 }]}
+                        />
+                    : 
+                        <Image
+                            source={FAVORITES_BLACK}
+                            resizeMode='contain'
+                            style={[styles.tabBarIconStyleUnFocussed, { width: 26, height: 26 }]}
+                        />
                     ),
                     headerShown: false,
                     tabBarShowLabel: false,
@@ -97,6 +113,13 @@ const BottomTabNavigation = () => {
                                 style={styles.tabBarIconStyleFocussed}
                            /> 
                         :
+                        theme === 'dark' ?
+                            <Image
+                                source={USER_WHITE}
+                                resizeMode='contain'
+                                style={styles.tabBarIconStyleUnFocussed}
+                            />
+                        : 
                             <Image
                                 source={USER_BLACK}
                                 resizeMode='contain'
@@ -113,11 +136,11 @@ const BottomTabNavigation = () => {
 
 const styles = StyleSheet.create({
     tabBarStyle: {
-        backgroundColor: colors.white,
         height: normalize(60),
+        // borderTopLeftRadius: normalize(15),
+        // borderTopRightRadius: normalize(15),
         elevation: 2,
-        borderTopLeftRadius: normalize(15),
-        borderTopRightRadius: normalize(15)
+        borderTopWidth: 2
     },
     tabBarIconStyleFocussed: {
         width: normalize(27),
@@ -125,7 +148,7 @@ const styles = StyleSheet.create({
     },
     tabBarIconStyleUnFocussed: {
         width: normalize(23),
-        height: normalize(23),
+        height: normalize(23)
     }
 })
 

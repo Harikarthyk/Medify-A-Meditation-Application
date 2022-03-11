@@ -1,5 +1,6 @@
 const HOME_BLACK = require('../assets/icons/homeBlack.png');
 const HOME_PRIMARY = require('../assets/icons/homePrimary.png');
+const HOME_WHITE = require('../assets/icons/homeWhite.png');
 const LEFT_ARROW_PRIMARY = require('../assets/icons/leftArrowPrimary.png');
 const USER_WHITE = require('../assets/icons/userWhite.png');
 const USER_BLACK = require('../assets/icons/userBlack.png');
@@ -34,6 +35,7 @@ export {
     PLAY_BUTTON_WHITE,
     LEFT_ARROW_PRIMARY,
 
+    HOME_WHITE,
     HOME_BLACK,
     HOME_PRIMARY,
     

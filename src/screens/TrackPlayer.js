@@ -6,12 +6,13 @@ import {
     Text,
     StatusBar,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    useColorScheme
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import FastImage from 'react-native-fast-image';
 import normalize from 'react-native-normalize';
-import { BACKWARD_PRIMARY, FAVORITES_PRIMARY, FAVORITES_WHITE, FORWARD_PRIMARY, LEFT_ARROW_PRIMARY, PAUSE_PRIMARY, PLAY_BUTTON_PRIMARY, STARRED, UN_STARRED } from '../constants/icons';
+import { BACKWARD_PRIMARY, FAVORITES_BLACK, FAVORITES_PRIMARY, FAVORITES_WHITE, FORWARD_PRIMARY, LEFT_ARROW_PRIMARY, PAUSE_PRIMARY, PLAY_BUTTON_PRIMARY, STARRED, UN_STARRED } from '../constants/icons';
 import colors from '../theme/colors'
 import fonts from '../theme/fonts';
 import metrics from '../theme/metrics';
@@ -27,6 +28,8 @@ function TrackPlayer({
     navigation,
     route
 }) {
+
+    const theme = useColorScheme();
 
     const { item } = route.params;
     
@@ -185,13 +188,25 @@ function TrackPlayer({
                         setIsAddedToFav(true);
                     }}
                 >
-                    <Image
+                    {
+                        theme === 'dark' ? 
+                        <Image
                         source={FAVORITES_WHITE}
                         style={{
                             width: normalize(30),
                             height: normalize(30)
                         }}
-                    />
+                    />:
+                    <Image
+                    source={FAVORITES_BLACK}
+                    style={{
+                        width: normalize(30),
+                        height: normalize(30)
+                    }}
+                />
+                        
+                    }
+                   
                 </TouchableOpacity>
                 :
                 <TouchableOpacity
