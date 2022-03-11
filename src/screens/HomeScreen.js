@@ -8,15 +8,16 @@ import {
     StatusBar, 
     StyleSheet, 
     Text,
-    View
+    View,
+    useColorScheme
 } from 'react-native';
 import normalize from 'react-native-normalize';
 import AudioView from '../components/AudioView';
 import Category from '../components/Category';
-import { MAN } from '../constants/images';
-import { categoriesData } from '../store/data';
 import colors from '../theme/colors';
 import fonts from '../theme/fonts';
+import CategoryLoader from '../components/Loaders/Category';
+import AudioViewLoader from '../components/Loaders/AudioView';
 
 const greetings = (date = new Date()) => {
     const hour = date.getHours();
@@ -82,6 +83,8 @@ const SubHeader = ({content}) => {
 function HomeScreen({
     navigation
 }) {
+
+    const theme = useColorScheme();
 
     const [categories, setCategories] = useState({
         isLoading: true,
@@ -171,7 +174,11 @@ function HomeScreen({
                     style={styles.categoryContainer}
                 >
                     <SubHeader content={'Medify Categories'} />
-                    <View
+                    {
+                        categories.isLoading === true ?
+                         <CategoryLoader theme={theme} />
+                        :
+                        <View
                         style={{
                             marginVertical: normalize(10)
                         }}
@@ -187,21 +194,29 @@ function HomeScreen({
                             renderItem={({ item }) => <Category key={item.id} item={item} navigation={navigation} />}
                         />
                     </View>
-                </View>
 
+                    }
+                   
+                </View>
+                
                 <View style={styles.container}>
                     <SubHeader content={'Guided Meditation'} />
-            
+                    {
+                        guidedMeditation.isLoading === true ?
+                        <AudioViewLoader horizontal={true} />
+                        :
+                    
                     <FlatList
-                    style={{
-                        width: '100%',
-                    }}
+                        style={{
+                            width: '100%',
+                        }}
                         data={guidedMeditation.audioTracks}
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => `${item.id}`}
                         renderItem={({item, index}) => <AudioView horizontal={true} key={item.id} item={item} navigation={navigation} />}
                     />
+}
                 </View>
 
                 <View
@@ -209,6 +224,9 @@ function HomeScreen({
                 >
                     <SubHeader content={'Micro Hits'} />
                     {
+                        microContent.isLoading === true ? 
+                        <AudioViewLoader horizontal={false} />
+                        :
                         microContent.audioTracks.map((item, index) => {
                             return <AudioView key={item.id + index + ''} item={item} navigation={navigation} />
                         })
