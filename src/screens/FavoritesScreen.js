@@ -1,17 +1,19 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import React, { useEffect } from 'react'
+
+import React, { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
     SafeAreaView, 
     StyleSheet, 
     Text, 
-    View
-} from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
-import normalize from 'react-native-normalize'
-import { useState } from 'react/cjs/react.development'
+    View,
+    FlatList
+} from 'react-native';
+import normalize from 'react-native-normalize';
 import AudioView from '../components/AudioView'
-import colors from '../theme/colors'
-import fonts from '../theme/fonts'
+import colors from '../theme/colors';
+import fonts from '../theme/fonts';
+import AnimatedLottieView from 'lottie-react-native';
+import { EMPTY } from '../constants/lottie';
 
 const Heading = () => {
     return(
@@ -44,7 +46,7 @@ function FavoritesScreen({navigation}) {
 
     const getFav = async() => {
         const myFav = await AsyncStorage.getItem('myFav');
-        if(myFav){
+        if(myFav !== null){
             const jsonFav = JSON.parse(myFav) || null;
             if(jsonFav?.fav){
                 setItems([...jsonFav.fav])
@@ -60,15 +62,37 @@ function FavoritesScreen({navigation}) {
             <Heading />
             <View style={styles.bottomBorder}/>
 
-            <FlatList
-                style={{
-                    flex: 1
-                }}
-                data={items}
-                keyExtractor={(item) => `${item.id}`}
-                showsVerticalScrollIndicator={false}
-                renderItem={({item}) => <AudioView key={item.id} item={item} navigation={navigation} />}
-            />
+            {
+                items.length === 0 ?
+                    <>
+                    <AnimatedLottieView
+                        source={EMPTY}
+                        autoPlay
+                        style={styles.lottie}
+                        resizeMode='contain'
+                        loop={false}
+                    />
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            width: '90%',
+                            alignSelf: 'center'
+                        }}
+                    >
+                       Sorry! No Favorites Medify Music Track Found.
+                    </Text>
+                    </>
+                :
+                    <FlatList
+                        style={{
+                            flex: 1
+                        }}
+                        data={items}
+                        keyExtractor={(item) => `${item.id}`}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({ item }) => <AudioView key={item.id} item={item} navigation={navigation} />}
+                    />
+            }
 
         </SafeAreaView>
     )
@@ -85,6 +109,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary, 
         width: normalize(120), 
         marginBottom: normalize(20)
+    },
+    lottie: {
+        height: normalize(380),
+        width: '100%',
+        alignSelf: 'center'
     }
 })
 

@@ -69,6 +69,7 @@ function CategoryScreen({navigation, route}) {
                 style={{
                     flex: 1
                 }}
+                showsVerticalScrollIndicator={false}
                 data={categoryInfo.audioTracks}
                 renderItem={({item}) => <AudioView item={item} navigation={navigation} />}
                 keyExtractor={(item) => item.id}
