@@ -7,7 +7,10 @@ import {
     StatusBar,
     Image,
     TouchableOpacity,
-    useColorScheme
+    useColorScheme,
+    BackHandler,
+    Alert,
+    ToastAndroid
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import FastImage from 'react-native-fast-image';
@@ -46,7 +49,8 @@ function TrackPlayer({
     const interval = useRef(setTimeout(() => {}, 0));
 
     const [isAddedToFav, setIsAddedToFav] = useState(false);
-
+    const [audioLoaded, setAudioLoaded] = useState(false);
+    
     async function playSound() {
         const myFav = await AsyncStorage.getItem('myFav');
         const jsonMyFav = JSON.parse(myFav) || null;
@@ -81,10 +85,21 @@ function TrackPlayer({
         });
     }
 
+    const customBackHandler = () => {
+        if (sound._loaded) {
+            return false;
+        } else {
+            ToastAndroid.show('Please Wait', ToastAndroid.SHORT);
+            return true;
+        }
+    }
+
     useEffect(function() {
         playSound();
+        BackHandler.addEventListener('hardwareBackPress', customBackHandler);
         return async() => {
             sound.stop();
+            BackHandler.removeEventListener('hardwareBackPress', customBackHandler)
             clearTimeout(interval.current);
             const myFav = await AsyncStorage.getItem('myFav');
             const jsonMyFav = JSON.parse(myFav) || null;
@@ -106,7 +121,8 @@ function TrackPlayer({
     }, []);
 
     const pauseHandler = () => {
-        sound.stop();
+        // sound.stop();
+        sound.pause();
         sound.setCurrentTime(currTime);
         sound['my_playing'] = false;
         setState({
@@ -119,7 +135,7 @@ function TrackPlayer({
     const resumeHandler = () => {
         sound.play();
         sound['my_playing'] = true;
-        sound.setCurrentTime(currTime);
+        // sound.setCurrentTime(currTime);
         setState({
             ...state,
             playState: 'playing'
@@ -233,6 +249,7 @@ function TrackPlayer({
                 }
                 
                 <TouchableOpacity
+                    disabled={!audioLoaded}
                     onPress={() => navigation.goBack()}
                     style={{
                         padding: normalize(10),

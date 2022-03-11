@@ -16,6 +16,9 @@ const codePushOptions = {
   checkFrequency: codePush.CheckFrequency.ON_APP_START
 }
 
+
+
+
 function App() {
   
   useEffect(() => {
