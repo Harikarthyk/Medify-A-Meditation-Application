@@ -203,7 +203,7 @@ function HomeScreen({
                     <SubHeader content={'Guided Meditation'} />
                     {
                         guidedMeditation.isLoading === true ?
-                        <AudioViewLoader horizontal={true} />
+                        <AudioViewLoader theme={theme} horizontal={true} />
                         :
                     
                     <FlatList
@@ -214,7 +214,7 @@ function HomeScreen({
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => `${item.id}`}
-                        renderItem={({item, index}) => <AudioView horizontal={true} key={item.id} item={item} navigation={navigation} />}
+                        renderItem={({item, index}) => <AudioView  horizontal={true} key={item.id} item={item} navigation={navigation} />}
                     />
 }
                 </View>
@@ -225,7 +225,7 @@ function HomeScreen({
                     <SubHeader content={'Micro Hits'} />
                     {
                         microContent.isLoading === true ? 
-                        <AudioViewLoader horizontal={false} />
+                        <AudioViewLoader theme={theme} horizontal={false} />
                         :
                         microContent.audioTracks.map((item, index) => {
                             return <AudioView key={item.id + index + ''} item={item} navigation={navigation} />
