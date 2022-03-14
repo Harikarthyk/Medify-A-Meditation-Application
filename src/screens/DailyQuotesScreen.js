@@ -29,7 +29,7 @@ const Heading = () => {
                 marginBottom: normalize(12)
             }}
         >
-            " Quotes of the Day "
+            Your Daily Quotes "
         </Text>
     )
 }
@@ -49,7 +49,7 @@ const displayTags = (tags, theme) => {
                     <Text
                         style={{
                             padding: normalize(14),
-                            backgroundColor: theme === 'dark' ? colors.black : colors.white,
+                            backgroundColor: theme === 'dark' ? colors.black : colors.gray,
                             margin: normalize(5),
                             borderRadius: normalize(5),
                             textTransform: 'capitalize',
