@@ -161,6 +161,19 @@ function DailyQuotesScreen({ navigation }) {
                 </View>
                         
             </ScrollView>
+            <Text
+                style={{
+                    color: colors.textGrey,
+                    fontSize: fonts.size.font12,
+                    textAlign: 'center',
+                    position: 'absolute',
+                    zIndex: 1,
+                    bottom: normalize(20),
+                    left: '40%'
+                }}
+            >
+                 Ⓒ They Said So
+            </Text>
 
         </SafeAreaView>
     )
