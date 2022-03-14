@@ -4,8 +4,10 @@ import {
     SafeAreaView, 
     ScrollView, 
     StyleSheet, 
-    View 
+    View,
+    Text
 } from 'react-native';
+import normalize from 'react-native-normalize';
 import metrics from '../theme/metrics';
 
 const QUOTES_URL = `https://quotes.rest/qod?language=en`;
@@ -25,6 +27,7 @@ function DailyQuotesScreen({ navigation }) {
         try{
             const response = await axios.get(QUOTES_URL);
             const { data } = response;
+            console.log(data.contents.quotes, 'data');
             if(data?.contents){
                 const { contents } = data;
                 if(contents.quotes){
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     quotes: {
-        height: normalize(200)
+        height: normalize (200)
     }
 })
 

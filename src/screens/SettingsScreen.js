@@ -26,20 +26,20 @@ const ProfileHeader = ({ name, gender, age, theme }) => {
         >
             <Text
                 style={{
-                    color: theme === 'dark' ? colors.textPrimaryDark : colors.textPrimaryDefault,
-                    fontSize: fonts.size.font22,
-                    textAlign: 'center',
-                    marginVertical: normalize(10)
+                    fontSize: fonts.size.font20,
+                    color: colors.primary,
+                    fontWeight: fonts.weight.semi,
+                    marginTop: normalize(20),
+                    marginBottom: normalize(12)
                 }}
             >
-                Profile
+                My Profile
             </Text>
-            <View
+            <View 
                 style={{
-                    width: '80%',
-                    height: normalize(3.7),
-                    alignSelf: 'center',
-                    backgroundColor: colors.secondary,
+                    height: normalize(4), 
+                    backgroundColor: colors.secondary, 
+                    width: normalize(80), 
                     marginBottom: normalize(30)
                 }}
             />

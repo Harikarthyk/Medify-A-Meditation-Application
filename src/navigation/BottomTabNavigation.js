@@ -5,7 +5,8 @@ import normalize from 'react-native-normalize';
 import {
     HomeScreen,
     FavoritesScreen,
-    SettingsScreen
+    SettingsScreen,
+    DailyQuotesScreen
 } from '../screens';
 import { 
     FAVORITES_PRIMARY,
@@ -16,7 +17,10 @@ import {
     USER_PRIMARY, 
     FAVORITES_WHITE,
     USER_WHITE,
-    HOME_WHITE
+    HOME_WHITE,
+    LEFT_QUOTE_PRIMARY,
+    LEFT_QUOTE_WHITE,
+    LEFT_QUOTE_BLACK
 } from '../constants/icons';
 import { 
     Image, 
@@ -93,6 +97,35 @@ const BottomTabNavigation = () => {
                     : 
                         <Image
                             source={FAVORITES_BLACK}
+                            resizeMode='contain'
+                            style={[styles.tabBarIconStyleUnFocussed, { width: 26, height: 26 }]}
+                        />
+                    ),
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                }}
+            />
+            <BottomTab.Screen
+                name="DailyQuotesScreen"
+                component={DailyQuotesScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        focused === true ?
+                            <Image
+                                source={LEFT_QUOTE_PRIMARY}
+                                resizeMode="contain"
+                                style={styles.tabBarIconStyleFocussed}
+                            /> 
+                        :
+                        theme === 'dark' ?
+                        <Image
+                            source={LEFT_QUOTE_WHITE}
+                            resizeMode='contain'
+                            style={[styles.tabBarIconStyleUnFocussed, { width: 26, height: 26 }]}
+                        />
+                    : 
+                        <Image
+                            source={LEFT_QUOTE_BLACK}
                             resizeMode='contain'
                             style={[styles.tabBarIconStyleUnFocussed, { width: 26, height: 26 }]}
                         />

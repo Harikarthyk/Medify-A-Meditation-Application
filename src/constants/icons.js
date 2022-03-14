@@ -5,6 +5,9 @@ const LEFT_ARROW_PRIMARY = require('../assets/icons/leftArrowPrimary.png');
 const USER_WHITE = require('../assets/icons/userWhite.png');
 const USER_BLACK = require('../assets/icons/userBlack.png');
 const USER_PRIMARY = require('../assets/icons/userPrimary.png');
+const LEFT_QUOTE_WHITE = require('../assets/icons/leftQuoteWhite.png');
+const LEFT_QUOTE_BLACK = require('../assets/icons/leftQuoteBlack.png');
+const LEFT_QUOTE_PRIMARY = require('../assets/icons/leftQuotePrimary.png');
 const FAVORITES_WHITE = require('../assets/icons/favoritesWhite.png');
 const FAVORITES_BLACK = require('../assets/icons/favoritesBlack.png');
 const FAVORITES_PRIMARY = require('../assets/icons/favoritesPrimary.png');
@@ -27,6 +30,10 @@ export {
     STARRED,
     UN_STARRED,
     
+    LEFT_QUOTE_BLACK,
+    LEFT_QUOTE_WHITE,
+    LEFT_QUOTE_PRIMARY,
+
     PAUSE_PRIMARY,
     FORWARD_PRIMARY,
     BACKWARD_PRIMARY,

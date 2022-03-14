@@ -1,4 +1,3 @@
-import { useColorScheme } from 'react-native';
 const colors = {
     primary: '#DE5727',
     secondary: '#7F78D2',
