@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "medify.app"
-               BlueprintName = "medify"
-               ReferencedContainer = "container:medify.xcodeproj">
+               BuildableName = "Meditate.app"
+               BlueprintName = "Meditate"
+               ReferencedContainer = "container:Meditate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "medifyTests.xctest"
-               BlueprintName = "medifyTests"
-               ReferencedContainer = "container:medify.xcodeproj">
+               BuildableName = "MeditateTests.xctest"
+               BlueprintName = "MeditateTests"
+               ReferencedContainer = "container:Meditate.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "medify.app"
-            BlueprintName = "medify"
-            ReferencedContainer = "container:medify.xcodeproj">
+            BuildableName = "Meditate.app"
+            BlueprintName = "Meditate"
+            ReferencedContainer = "container:Meditate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "medify.app"
-            BlueprintName = "medify"
-            ReferencedContainer = "container:medify.xcodeproj">
+            BuildableName = "Meditate.app"
+            BlueprintName = "Meditate"
+            ReferencedContainer = "container:Meditate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

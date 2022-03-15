@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* medifyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* medifyTests.m */; };
+		00E356F31AD99517003FC87E /* MeditateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MeditateTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D9051225DC8F21508D5C9E6E /* libPods-medify-medifyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC39CCB1A980F3F01E49C51 /* libPods-medify-medifyTests.a */; };
-		E9238F6C44AF383E067FC940 /* libPods-medify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9059B1CC065F08ABC3055EC3 /* libPods-medify.a */; };
+		D9051225DC8F21508D5C9E6E /* libPods-Meditate-MeditateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC39CCB1A980F3F01E49C51 /* libPods-Meditate-MeditateTests.a */; };
+		E9238F6C44AF383E067FC940 /* libPods-Meditate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9059B1CC065F08ABC3055EC3 /* libPods-Meditate.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,27 +22,27 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = medify;
+			remoteInfo = Meditate;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* medifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = medifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* MeditateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* medifyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = medifyTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* medify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medify.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = medify/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = medify/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = medify/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = medify/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = medify/main.m; sourceTree = "<group>"; };
-		1BC39CCB1A980F3F01E49C51 /* libPods-medify-medifyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-medify-medifyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = medify/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9059B1CC065F08ABC3055EC3 /* libPods-medify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-medify.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		99C9895F7E70AE5B480E9686 /* Pods-medify-medifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medify-medifyTests.release.xcconfig"; path = "Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests.release.xcconfig"; sourceTree = "<group>"; };
-		9EDB8B2D1130465C7F2A7809 /* Pods-medify-medifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medify-medifyTests.debug.xcconfig"; path = "Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C81052B343C6F0957AC1132C /* Pods-medify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medify.release.xcconfig"; path = "Target Support Files/Pods-medify/Pods-medify.release.xcconfig"; sourceTree = "<group>"; };
-		D6BA9238A5A05D1A79D0EEB3 /* Pods-medify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-medify.debug.xcconfig"; path = "Target Support Files/Pods-medify/Pods-medify.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* MeditateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeditateTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Meditate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Meditate/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Meditate/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Meditate/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Meditate/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Meditate/main.m; sourceTree = "<group>"; };
+		1BC39CCB1A980F3F01E49C51 /* libPods-Meditate-MeditateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meditate-MeditateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Meditate/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9059B1CC065F08ABC3055EC3 /* libPods-Meditate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Meditate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C9895F7E70AE5B480E9686 /* Pods-Meditate-MeditateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meditate-MeditateTests.release.xcconfig"; path = "Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests.release.xcconfig"; sourceTree = "<group>"; };
+		9EDB8B2D1130465C7F2A7809 /* Pods-Meditate-MeditateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meditate-MeditateTests.debug.xcconfig"; path = "Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C81052B343C6F0957AC1132C /* Pods-Meditate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meditate.release.xcconfig"; path = "Target Support Files/Pods-Meditate/Pods-Meditate.release.xcconfig"; sourceTree = "<group>"; };
+		D6BA9238A5A05D1A79D0EEB3 /* Pods-Meditate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meditate.debug.xcconfig"; path = "Target Support Files/Pods-Meditate/Pods-Meditate.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9051225DC8F21508D5C9E6E /* libPods-medify-medifyTests.a in Frameworks */,
+				D9051225DC8F21508D5C9E6E /* libPods-Meditate-MeditateTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9238F6C44AF383E067FC940 /* libPods-medify.a in Frameworks */,
+				E9238F6C44AF383E067FC940 /* libPods-Meditate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* medifyTests */ = {
+		00E356EF1AD99517003FC87E /* MeditateTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* medifyTests.m */,
+				00E356F21AD99517003FC87E /* MeditateTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = medifyTests;
+			path = MeditateTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* medify */ = {
+		13B07FAE1A68108700A75B9A /* Meditate */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,15 +93,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = medify;
+			name = Meditate;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				9059B1CC065F08ABC3055EC3 /* libPods-medify.a */,
-				1BC39CCB1A980F3F01E49C51 /* libPods-medify-medifyTests.a */,
+				9059B1CC065F08ABC3055EC3 /* libPods-Meditate.a */,
+				1BC39CCB1A980F3F01E49C51 /* libPods-Meditate-MeditateTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,10 +109,10 @@
 		4F682BD71458E92EC47E5078 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D6BA9238A5A05D1A79D0EEB3 /* Pods-medify.debug.xcconfig */,
-				C81052B343C6F0957AC1132C /* Pods-medify.release.xcconfig */,
-				9EDB8B2D1130465C7F2A7809 /* Pods-medify-medifyTests.debug.xcconfig */,
-				99C9895F7E70AE5B480E9686 /* Pods-medify-medifyTests.release.xcconfig */,
+				D6BA9238A5A05D1A79D0EEB3 /* Pods-Meditate.debug.xcconfig */,
+				C81052B343C6F0957AC1132C /* Pods-Meditate.release.xcconfig */,
+				9EDB8B2D1130465C7F2A7809 /* Pods-Meditate-MeditateTests.debug.xcconfig */,
+				99C9895F7E70AE5B480E9686 /* Pods-Meditate-MeditateTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -128,9 +128,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* medify */,
+				13B07FAE1A68108700A75B9A /* Meditate */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* medifyTests */,
+				00E356EF1AD99517003FC87E /* MeditateTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				4F682BD71458E92EC47E5078 /* Pods */,
@@ -143,8 +143,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* medify.app */,
-				00E356EE1AD99517003FC87E /* medifyTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Meditate.app */,
+				00E356EE1AD99517003FC87E /* MeditateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* medifyTests */ = {
+		00E356ED1AD99517003FC87E /* MeditateTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "medifyTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MeditateTests" */;
 			buildPhases = (
 				9F1C55653D8D09C1EFBC91DE /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -168,14 +168,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = medifyTests;
-			productName = medifyTests;
-			productReference = 00E356EE1AD99517003FC87E /* medifyTests.xctest */;
+			name = MeditateTests;
+			productName = MeditateTests;
+			productReference = 00E356EE1AD99517003FC87E /* MeditateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* medify */ = {
+		13B07F861A680F5B00A75B9A /* Meditate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "medify" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Meditate" */;
 			buildPhases = (
 				EA6CCA238FBC68008D46E1C4 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -190,9 +190,9 @@
 			);
 			dependencies = (
 			);
-			name = medify;
-			productName = medify;
-			productReference = 13B07F961A680F5B00A75B9A /* medify.app */;
+			name = Meditate;
+			productName = Meditate;
+			productReference = 13B07F961A680F5B00A75B9A /* Meditate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "medify" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Meditate" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* medify */,
-				00E356ED1AD99517003FC87E /* medifyTests */,
+				13B07F861A680F5B00A75B9A /* Meditate */,
+				00E356ED1AD99517003FC87E /* MeditateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,15 +271,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4366096782A253BCCE89D033 /* [CP] Copy Pods Resources */ = {
@@ -288,15 +288,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		59FABCACF4CB53C5DE7DDF34 /* [CP] Embed Pods Frameworks */ = {
@@ -305,15 +305,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-medify/Pods-medify-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meditate/Pods-Meditate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9F1C55653D8D09C1EFBC91DE /* [CP] Check Pods Manifest.lock */ = {
@@ -331,7 +331,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-medify-medifyTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Meditate-MeditateTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -344,15 +344,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-medify-medifyTests/Pods-medify-medifyTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meditate-MeditateTests/Pods-Meditate-MeditateTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA6CCA238FBC68008D46E1C4 /* [CP] Check Pods Manifest.lock */ = {
@@ -370,7 +370,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-medify-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Meditate-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* medifyTests.m in Sources */,
+				00E356F31AD99517003FC87E /* MeditateTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* medify */;
+			target = 13B07F861A680F5B00A75B9A /* Meditate */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EDB8B2D1130465C7F2A7809 /* Pods-medify-medifyTests.debug.xcconfig */;
+			baseConfigurationReference = 9EDB8B2D1130465C7F2A7809 /* Pods-Meditate-MeditateTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = medifyTests/Info.plist;
+				INFOPLIST_FILE = MeditateTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,17 +450,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/medify.app/medify";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meditate.app/Meditate";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99C9895F7E70AE5B480E9686 /* Pods-medify-medifyTests.release.xcconfig */;
+			baseConfigurationReference = 99C9895F7E70AE5B480E9686 /* Pods-Meditate-MeditateTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = medifyTests/Info.plist;
+				INFOPLIST_FILE = MeditateTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,19 +474,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/medify.app/medify";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meditate.app/Meditate";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6BA9238A5A05D1A79D0EEB3 /* Pods-medify.debug.xcconfig */;
+			baseConfigurationReference = D6BA9238A5A05D1A79D0EEB3 /* Pods-Meditate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = medify/Info.plist;
+				INFOPLIST_FILE = Meditate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +497,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = medify;
+				PRODUCT_NAME = Meditate;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,12 +506,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C81052B343C6F0957AC1132C /* Pods-medify.release.xcconfig */;
+			baseConfigurationReference = C81052B343C6F0957AC1132C /* Pods-Meditate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = medify/Info.plist;
+				INFOPLIST_FILE = Meditate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = medify;
+				PRODUCT_NAME = Meditate;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "medifyTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MeditateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "medify" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Meditate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "medify" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Meditate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

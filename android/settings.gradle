@@ -1,4 +1,4 @@
-rootProject.name = 'medify'
+rootProject.name = 'Meditate'
 include ':@react-native-community_masked-view'
 project(':@react-native-community_masked-view').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/masked-view/android')
 include ':react-native-reanimated'
