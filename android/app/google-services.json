@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:207697149490:android:bf91c510b546f47a3ac62b",
+        "mobilesdk_app_id": "1:207697149490:android:92a99f753c0784853ac62b",
         "android_client_info": {
-          "package_name": "com.medify"
+          "package_name": "com.harikarthyk.meditate"
         }
       },
       "oauth_client": [
