@@ -103,7 +103,7 @@ PushNotification.configure({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.backgroundColor,
+        // backgroundColor: colors.backgroundColor,
         justifyContent: 'center'
     },
     lottieLogo: {

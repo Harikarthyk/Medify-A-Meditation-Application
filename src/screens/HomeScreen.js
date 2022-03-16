@@ -167,6 +167,7 @@ function HomeScreen({
 
             <ScrollView
                 style={styles.scrollContainer}
+                showsHorizontalScrollIndicator={false}
             >
                 <Header />
                 

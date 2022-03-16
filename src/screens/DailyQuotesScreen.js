@@ -14,6 +14,7 @@ import normalize from 'react-native-normalize';
 import colors from '../theme/colors';
 import fonts from '../theme/fonts';
 import metrics from '../theme/metrics';
+import DailyQuotesLoader from '../components/Loaders/DailyQuotes';
 
 const QUOTES_URL = `https://quotes.rest/qod?language=en`;
 
@@ -84,7 +85,6 @@ function DailyQuotesScreen({ navigation }) {
         try{
             const response = await axios.get(QUOTES_URL);
             const { data } = response;
-            console.log(data.contents.quotes, 'data');
             if(data?.contents){
                 const { contents } = data;
                 if(contents.quotes){
@@ -134,30 +134,36 @@ function DailyQuotesScreen({ navigation }) {
                 <View
                     style={[styles.quotesContainer, { backgroundColor: theme === 'dark' ? colors.cardColorDark : colors.cardColorDefault }]}
                 >
-                    <FastImage
-                        source={{
-                            uri: quotes.content?.background
-                        }}
-                        style={styles.background}
+                    {quotes.isLoading === true ?
+                        <DailyQuotesLoader theme={theme} />
+                        :
+                        <>
+                            <FastImage
+                                source={{
+                                    uri: quotes.content?.background
+                                }}
+                                style={styles.background}
 
-                    />  
-                    <Text
-                        style={styles.quotesText}
-                    >
-                        {quotes.content?.quote}
-                    </Text>
-                    <Text
-                        style={styles.author}
-                    >
-                       - {quotes.content?.author}
-                    </Text>
-                    <View
-                        style={{
-                            flex: 1
-                        }}
-                    >
-                        {quotes.content?.tags && displayTags(quotes.content?.tags, theme)}
-                    </View>
+                            />
+                            <Text
+                                style={styles.quotesText}
+                            >
+                                {quotes.content?.quote}
+                            </Text>
+                            <Text
+                                style={styles.author}
+                            >
+                                - {quotes.content?.author}
+                            </Text>
+                            <View
+                                style={{
+                                    flex: 1
+                                }}
+                            >
+                                {quotes.content?.tags && displayTags(quotes.content?.tags, theme)}
+                            </View>
+                        </>
+                    }
                 </View>
                         
             </ScrollView>
