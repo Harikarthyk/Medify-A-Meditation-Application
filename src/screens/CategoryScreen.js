@@ -2,13 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { 
     FlatList, 
+    Image, 
     SafeAreaView, 
     StyleSheet,
     Text,
+    TouchableOpacity,
     View
 } from 'react-native';
 import normalize from 'react-native-normalize';
 import AudioView from '../components/AudioView';
+import { LEFT_ARROW_PRIMARY } from '../constants/icons';
 import colors from '../theme/colors';
 import fonts from '../theme/fonts';
 
@@ -18,9 +21,7 @@ const Heading = ({content}) => {
             style={{
                 fontSize: fonts.size.font20,
                 color: colors.primary,
-                fontWeight: fonts.weight.semi,
-                marginTop: normalize(20),
-                marginBottom: normalize(12)
+                fontWeight: fonts.weight.semi
             }}
         >
             {content}
@@ -60,8 +61,35 @@ function CategoryScreen({navigation, route}) {
         <SafeAreaView
             style={styles.container}
         >
-
-            <Heading  content={`Medify's ${category?.name}`} />
+            <View
+                style={{
+                    flexDirection: 'row',
+                    width: '100%',
+                    // justifyContent: 'space-around',
+                    alignItems: 'center',
+                    marginTop: normalize(10),
+                    marginBottom: normalize(5)
+                }}
+            >
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}
+                    style={{
+                        padding: normalize(10),
+                        marginRight: normalize(5)
+                        // left: 0,
+                        // position: 'absolute'
+                    }}
+                >
+                    <Image
+                        source={LEFT_ARROW_PRIMARY}
+                        style={{
+                            width: normalize(30),
+                            height: normalize(30)
+                        }}
+                    />
+                </TouchableOpacity>
+                <Heading content={`Category ${category?.name}`} />
+            </View>
             <View style={styles.bottomBorder} />
 
 

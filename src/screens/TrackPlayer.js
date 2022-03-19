@@ -79,11 +79,16 @@ function TrackPlayer({
             showNotification();
             interval.current = setInterval(function () {
                 if (sound && sound._loaded && sound['my_playing'] == true) {
-                    sound.getCurrentTime((seconds) => {
-                        setCurrTime(seconds);
-                    })
+                    if(sound['sliding'] === true){
+
+                    }else{
+                        sound.getCurrentTime((seconds) => {
+                            setCurrTime(seconds);
+                        })
+                    }
+                    
                 }
-            }, 100);
+            }, 800);
 
         });
     }
@@ -149,6 +154,7 @@ function TrackPlayer({
             return true;
         }
     }
+
 
     useEffect(function () {
         playSound();
@@ -231,6 +237,23 @@ function TrackPlayer({
         sound.setCurrentTime(currTime + 15 < state.duration ? currTime + 15 : state.duration);
 
         sound['my_playing'] = true;
+    }
+
+    const slidingStart = (time) => {
+        sound['sliding'] = true;
+        sound.pause();
+        sound.setCurrentTime(time);
+        if (sound._playing === false) {
+            setState({
+                ...state,
+                playState: 'playing'
+            })
+        }
+
+        sound['my_playing'] = true;
+        sound.play();
+
+        sound['sliding'] = false;
     }
 
     return (
@@ -349,24 +372,24 @@ function TrackPlayer({
                         </View>
                         <View
                             style={{
-                                marginVertical: normalize(25)
+                                marginVertical: normalize(25),
+                                // backgroundColor: 'red',
+                                width: '100%',
+                                height: normalize(50)
                             }}
                         >
                             <Slider
-                                onSlidingComplete={() => {
-                                    console.log('touch')
-                                }}
-                                // onTouchMove={() => console.log('onTouchMove')}
-                                onTouchEnd={() => { }}
-                                // onTouchEndCapture={() => console.log('onTouchEndCapture')}
-                                // onTouchCancel={() => console.log('onTouchCancel')}
                                 onValueChange={(newTime) => {
-                                    console.log('new timeeeee')
-                                    // sound.setCurrentTime(newTime);
-                                    // setCurrTime(newTime);
+                                    
+                                }}
+                                onSlidingComplete={(time) => {
+                                    slidingStart(time)
+                                }}
+                                onTouchStart={() => {
                                 }}
                                 value={currTime}
                                 minimumValue={0}
+                                step={1}
                                 maximumValue={state.duration}
                                 maximumTrackTintColor={colors.textGrey}
                                 minimumTrackTintColor={colors.primary}
@@ -375,7 +398,8 @@ function TrackPlayer({
                                 style={{
                                     flex: 1,
                                     width: '100%',
-                                    alignSelf: 'center'
+                                    alignSelf: 'center',
+                                    height: 100
                                 }}
                             />
                         </View>

@@ -26,7 +26,7 @@ const Heading = () => {
                 marginBottom: normalize(12)
             }}
         >
-            Your Liked Medify Audios
+            Your Liked Audios
         </Text>
     )
 }

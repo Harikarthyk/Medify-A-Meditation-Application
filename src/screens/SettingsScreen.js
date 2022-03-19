@@ -221,7 +221,7 @@ function SettingsScreen({ navigation }) {
                     left: '40%'
                 }}
             >
-                Medify v.1.0.0
+                Meditate v1.0.2
             </Text>
 
         </SafeAreaView>

@@ -174,7 +174,7 @@ function HomeScreen({
                 <View
                     style={styles.categoryContainer}
                 >
-                    <SubHeader content={'Medify Categories'} />
+                    <SubHeader content={'Meditate Categories'} />
                     {
                         categories.isLoading === true ?
                          <CategoryLoader theme={theme} />
