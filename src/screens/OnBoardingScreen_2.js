@@ -13,6 +13,7 @@ import {
     useColorScheme
 } from 'react-native';
 import normalize from 'react-native-normalize';
+import PushNotification, { Importance } from 'react-native-push-notification';
 import Toast from 'react-native-toast-message';
 import TextInput_1 from '../components/TextInput/TextInput_1';
 import { HOME, LEFT_ARROW_PRIMARY } from '../constants/icons';
@@ -64,6 +65,28 @@ function OnBoardingScreen_2({ navigation }) {
         }
 
         await AsyncStorage.setItem('user', JSON.stringify(state));
+        PushNotification.createChannel(
+            {
+              channelId: "meditateRemainder", // (required)
+              channelName: "Meditate", // (required)
+              channelDescription: "Remainder", // (optional) default: undefined.
+              playSound: true, // (optional) default: true
+              soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+              importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+              vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
+            },
+        );
+        PushNotification.createChannel(
+            {
+              channelId: "meditatePlayer", // (required)
+              channelName: "Meditate", // (required)
+              channelDescription: "Player", // (optional) default: undefined.
+              playSound: true, // (optional) default: true
+              soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+              importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+              vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
+            },
+        );
         navigation.replace('BottomTabStack');
     }
 
