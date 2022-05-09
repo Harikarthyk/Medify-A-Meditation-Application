@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { 
     FlatList,
-    Image,
     SafeAreaView, 
     ScrollView, 
     StatusBar, 
@@ -18,6 +17,8 @@ import colors from '../theme/colors';
 import fonts from '../theme/fonts';
 import CategoryLoader from '../components/Loaders/Category';
 import AudioViewLoader from '../components/Loaders/AudioView';
+import PushNotification, { Importance } from 'react-native-push-notification';
+// import notifee from '@notifee/react-native';
 
 const greetings = (date = new Date()) => {
     const hour = date.getHours();
